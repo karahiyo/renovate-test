@@ -1,5 +1,5 @@
 steps:
-  - name: gcr.io/google.com/cloudsdktool/google-cloud-cli:426.0.0-slim
+  - name: gcr.io/google.com/cloudsdktool/google-cloud-cli:431.0.0-slim
     env:
       - TZ=UTC
       - FIREBASE_VERSION=v11.25.3 # renovate: gh=firebase/firebase-tools
