@@ -1,0 +1,25 @@
+steps:
+  - name: gcr.io/google.com/cloudsdktool/google-cloud-cli:426.0.0-slim # renovate: datasource=docker versioning=docker
+    env:
+      - TZ=UTC
+      - FIREBASE_VERSION=v11.25.3 # renovate: gh=firebase/firebase-tools
+      - PROJECT=$PROJECT_ID
+    script: |
+      #!/usr/bin/env bash
+      set -euox pipefail
+
+      # Download firebase tools
+      curl -Lo /usr/bin/firebase https://firebase.tools/bin/linux/${FIREBASE_VERSION}
+
+      # Validate the binary
+      #   Calculate the checksum of the firebase binary file using the following command,
+      # ```
+      # curl -L https://firebase.tools/bin/linux/${FIREBASE_VERSION} | shasum -a 256
+      # ```
+      checksum="57a4ba04fddaed557b83fe0b18ed68dd49d6d25a773fa12185a4e7ec8f0d7f67"
+      echo "${checksum} /usr/bin/firebase" | sha256sum --check
+      chmod +x /usr/bin/firebase
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+
