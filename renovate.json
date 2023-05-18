@@ -4,15 +4,21 @@
         "config:base",
         ":dependencyDashboard"
     ],
+    "packageRules": [
+        {
+            "groupName": "firebase/firebase-tools",
+            "matchPackagePatterns": ["firebase/firebase-tools"],
+            "prBodyNotes": ":warning: Additional action is required. There is a step to check the checksum of firebase-tools binary, please update the checksum value."
+        }
+    ],
     "regexManagers": [
         {
             "fileMatch": ["^\\.cloudbuild/.*\\.yaml$"],
             "matchStrings": [
-                "FIREBASE_VERSION=(?<currentValue>[^ '\"]+?)\\s*# renovate: gh=(?<depName>.*?)\\n"
+                ".*_VERSION=(?<currentValue>[^ '\"]+?)\\s*# renovate: gh=(?<depName>.*?)\\n"
             ],
             "datasourceTemplate": "github-releases",
-            "extractVersionTemplate": "^(?<version>v?.*)$",
-            "prBodyNotes": ":warning: Additional action is required. There is a step to check the checksum of firebase-tools binary, please update the checksum value."
+            "extractVersionTemplate": "^(?<version>v?.*)$"
         },
         {
             "fileMatch": ["^\\.cloudbuild/.*\\.yaml$"],
