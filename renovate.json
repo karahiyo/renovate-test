@@ -9,7 +9,8 @@
             "matchStrings": [
                 "(?<currentValue>[^ '\"]+?)\\s*# renovate: gh=(?<depName>.*?)\\n",
                 "\"(?<currentValue>[^ '\"]+?)\"\\s*# renovate: gh=(?<depName>.*?)\\n",
-                "'(?<currentValue>[^ '\"]+?)'\\s*# renovate: gh=(?<depName>.*?)\\n"
+                "'(?<currentValue>[^ '\"]+?)'\\s*# renovate: gh=(?<depName>.*?)\\n",
+                ".*_VERSION=(?<currentValue>.*)\\s*# renovate: gh=(?<depName>.*?)\\n"
             ],
             "datasourceTemplate": "github-releases",
             "extractVersionTemplate": "^(?<version>v?.*)$"
