@@ -8,6 +8,7 @@
         {
             "groupName": "firebase/firebase-tools",
             "matchPackagePatterns": ["firebase/firebase-tools"],
+            "matchPaths": ["^\\.cloudbuild/hello\\.yaml$"],
             "prBodyNotes": ":warning: Additional action is required. There is a step to check the checksum of firebase-tools binary, please update the checksum value. [ref](http://github.com/karahiyo/renovate-test) :warning:"
         }
     ],
